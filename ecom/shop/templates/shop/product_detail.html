@@ -1,0 +1,43 @@
+{% extends 'shop/base.html' %}
+
+{% block content %}
+    <div class="container my-5">
+        <div class="">
+            <div class="row">
+                <aside class="col-sm-5 border-right">
+                    <article class="gallery-wrap">
+                        <div class="img-big-wrap">
+                            <a href="#"><img src="/media/{{object.image}}" style="width: 450px;" alt=""></a>
+                        </div>
+                    </article>
+                </aside>
+
+                <aside class="col-sm-7">
+                    <article class="card-body p-5">
+                        <h3 class="title mp-3">{{detail.name}}</h3>
+                        <p class="price-detail-wrap">
+                            <span class="price h3 text-warning">
+                            <span class="currency">$</span>
+                            <span class="num">{{detail.price}}</span>
+                            </span>
+                            
+                        </p>
+
+                        <dl class="item-property">
+                            <dt>Category:<font color='red'><b>{{detail.category}}</b></font></dt>
+                            <br>
+                            <dt>Description</dt>
+                            <dd>
+                                <p>{{detail.description|linebreaks}}</p>
+                            </dd>
+                        </dl>
+                        <a href="{% url 'addtocart' object.id %}" class="btn btn -lg btn-outline-primary text-uppercase">
+                            <i class="fa fa-shopping-cart" ></i>Add To Cart
+                        </a>
+                    </article>
+                </aside>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+    
